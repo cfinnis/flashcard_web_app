@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes</title>
+</head>
+<body>
+    {% extends 'teacherhome.html'%}
+    {% block content %}
+    <main class="manage_cards">
+        <!-- Add class -->
+        <section class="element">
+            <h1 class="title">Add Class</h1>
+            <form action="{{ url_for('teacher.classes') }}" method="POST">
+                <input type="text" name="class" placeholder="class name">
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+        <!-- Add students to class-->
+        <section class="element">
+            <h1 class="title">Add Students</h1>
+            <form action="{{ url_for('teacher.addstudents') }}" method="POST">
+                <select name="class">
+                    {% for class in classes %}
+                    <option value="{{class[0]}}">{{ class[1] }}</option>
+                    {% endfor %}
+                </select>
+                {% for student in students %}
+                <input type="checkbox" name="check" id="{{student[0]}}" value="{{student[0]}}">
+                <label for="{{student[0]}}" name="{{student[0]}}">{{ student[1] }}&nbsp</label><br>
+                {% endfor %}
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+
+        <!-- Delete Class form-->
+        <section class="element">
+            <h1 class="title">Delete Class</h1>
+            <p>This removes all the students from the selected class.</p>
+            <form action="{{ url_for('teacher.deleteclass') }}" method="POST">
+                <select name="delete_class">
+                    {% for class in classes %}
+                    <option value="{{ class[0] }}">{{ class[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+        <!-- Delete student from class form -->
+        <section class="element">
+            <h1 class="title">Delete Students</h1>
+            <p>Select the class you'd like to delete students from and then the students in that class will appear.</p>
+            <form action="{{ url_for('teacher.selectclass') }}" method="POST">
+                <select name="class">
+                    {% for class in classes %}
+                    <option value="{{class[0]}}">{{ class[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit">
+            </form>
+            <form action="{{ url_for('teacher.deletestudent') }}" method="POST">
+                {% for student in class_members %}
+                <input type="checkbox" name="checkbox" id="{{student[0]}}" value="{{student[0]}}">
+                <label for="{{student[0]}}" name="{{student[0]}}">{{ student[1] }}&nbsp</label><br>
+                {% endfor %}
+                <input type="submit" name="submit">
+            </form>
+        </section>
+        {% endblock %}
+    </main>
+</body>
+</html>

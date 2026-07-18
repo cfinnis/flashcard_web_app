@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <center>
+        <h1>Edit Flashcard</h1>
+        <form method="POST">
+            <input type="text" name="number" placeholder="card number">
+            <input type="text" name="front" placeholder="front">
+            <input type="text" name="back" placeholder="back">
+            <input type="submit" name="submit">
+
+        </form>
+        <h3>All Flashcards</h3>
+        <table>
+            <tr>
+                <th>Card Number</th>
+                <th>Front</th>
+                <th>Back</th>
+            </tr>
+            {% for flashcard in flashcards %}
+                <tr>
+                    <td>{{ flashcard[0] }}</td>
+                    <td>{{ flashcard[1] }}</td>
+                    <td>{{ flashcard[2] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        </center>
+    {% endblock %}
+</body>
+</html>

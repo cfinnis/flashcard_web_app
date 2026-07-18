@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Due Cards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <section class="quick_study_header">
+        <div class="quickstudy">
+            <p class="menu"><a href="{{ url_for('study.quickstudy') }}">Quick Study</a></p>
+        </div>
+    </section>
+    <section class="study">
+
+        <div class="card">
+            <p>{{ message }}</p>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>

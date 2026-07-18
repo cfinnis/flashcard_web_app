@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <section class="quick_study_header">
+        <div class="quickstudy">
+            <p class="menu"><a href="{{ url_for('study.quickstudy') }}">Quick Study</a></p>
+        </div>
+    </section>
+    <section class="study">
+
+        <div class="card">
+            <p>{{ card[side] }}</p>
+        </div>
+
+        <div class="flip">
+            <form action="{{ url_for('study.flipcard') }}" method="POST">
+                <input type="submit" name="flip" value="flip">
+            </form>
+        </div>
+
+        <div class="rating_btn">
+            <form action="{{ url_for('study.rating') }}" method="POST">
+                <input type="submit" name="rating" value="1" class="rating">
+            </form>
+            <form action="{{ url_for('study.rating') }}" method="POST">
+                <input type="submit" name="rating" value="2" class="rating">
+            </form>
+            <form action="{{ url_for('study.rating') }}" method="POST">
+                <input type="submit" name="rating" value="3" class="rating">
+            </form>
+            <form action="{{ url_for('study.rating') }}" method="POST">
+                <input type="submit" name="rating" value="4" class="rating">
+            </form>
+            <form action="{{ url_for('study.rating') }}" method="POST">
+                <input type="submit" name="rating" value="5" class="rating">
+            </form>
+        </div>
+
+    </section>
+    {% endblock %}
+</body>
+</html>

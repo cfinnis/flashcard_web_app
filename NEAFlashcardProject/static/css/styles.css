@@ -1,0 +1,294 @@
+body {
+    min-height: 600px;
+    display: grid;
+    grid-template-columns: 150px 1fr; 
+    grid-template-rows: 80px 1fr;
+    grid-template-areas: 
+        "header header"
+        "side main";
+}
+
+.quick_study_header {
+    grid-area: header;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    padding: 90px;
+}
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 50px;
+}
+.study {
+    grid-area: main;
+    align-self: center;
+
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 30px;
+    grid-template-areas:
+        "card card card card card"
+        "a1 a2 a3 a4 a5";
+    gap: 20px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 500px;
+    padding: 50px;
+    border: 1px solid black;
+    margin: 50px;
+    grid-area: card;
+}
+
+.rating {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid black;
+    /* justify-content: center;
+    align-items: center;
+    margin: 10px; */
+}
+
+.rating_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rating_btn:nth-child(1) {
+    grid-area: a1;
+}
+.rating_btn:nth-child(2) {
+    grid-area: a2;
+}
+.rating_btn:nth-child(3) {
+    grid-area: a3;
+}
+.rating_btn:nth-child(4) {
+    grid-area: a4;
+}
+.rating_btn:nth-child(5) {
+    grid-area: a5;
+}
+
+
+.next {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    grid-area: a1;
+}
+
+.next_btn {
+    margin: 10px;
+    grid-area: "main";
+}
+
+.flip {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    grid-area: a2;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    border: 1px solid black;
+    gap: 40px;
+}
+
+.teacher_menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 110px;
+    width: 110px;
+    border-radius: 50%;
+    border: 1px solid black;
+    gap: 40px;
+}
+
+.main {
+    grid-area: main;
+    margin: 20px;
+}
+.manage_cards {
+    grid-area: main;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 230px 1fr;
+    grid-template-areas:
+        "e1 e2"
+        "e3 e4";
+    gap: 20px;
+}
+.classes {
+    grid-area: main;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+    grid-template-areas:
+        "e1 e2"
+        "e3 e4";
+    gap: 20px;
+}
+
+.element {
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.element:nth-child(1) {
+    grid-area: e2;
+    max-height: 100%;
+}
+.element:nth-child(2) {
+    grid-area: e1;
+    max-height: 100%;
+}
+.element:nth-child(3) {
+    grid-area: e4;
+}
+.element:nth-child(4) {
+    grid-area: e3;
+}
+
+.sidebar {
+    grid-area: side;
+    margin: 20px;
+}
+
+/* Parent container: .deck */
+.deck {
+    display: flex; /* Enables horizontal alignment of children */
+    flex-direction: row; /* Ensures items are in a horizontal row */
+    gap: 20px; /* Adds spacing between the two columns */
+    align-items: flex-start; /* Aligns items at the top */
+}
+
+
+/* Right column: Edit list */
+.edit_list {
+    list-style: none; /* Removes bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    gap: 10px; /* Adds spacing between edit items */
+}
+
+/* Ensure individual items stack within the list */
+.edit_item {
+    margin-bottom: 10px; /* Adds space between items */
+    display: flex; /* Optional: if you want to align inputs and button */
+    flex-direction: column; /* Stack inputs and button vertically */
+}
+
+/* Optional: Style the inputs and buttons */
+.edit_item input,
+.edit_item button {
+    margin: 5px 0; /* Adds space around inputs and button */
+}
+
+.quiz {
+    grid-area: main;
+    align-self: center;
+
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "decks";
+    gap: 20px;
+}
+
+.box {
+    height: 250px;
+    width: 500px;
+    padding: 50px;
+    border: 1px solid black;
+    margin: 50px;
+    grid-area: decks; 
+
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+        "names quiz";
+    gap: 20px;
+}
+
+.decks {
+    grid-area: names;
+}
+
+.quiz_btn {
+    grid-area: quiz;
+
+}
+
+
+.quiz_container{
+    grid-area: main;
+    align-self: center;
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr ;
+    grid-template-rows: 1fr 50px;
+    grid-template-areas:
+        "card"
+        "answers";
+    gap: 20px;
+}
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+    padding: 50px;
+    border: 1px solid black;
+    margin: 50px;
+    grid-area: card;
+}
+
+.ans{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-area: answers;
+}
+
+.edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

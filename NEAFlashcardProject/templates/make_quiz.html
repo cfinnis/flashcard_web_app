@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make Quiz</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <section class="element">
+        <h1 class="title">Add Class</h1>
+        <form action="/addclass" method="POST">
+            <input type="text" name="class" placeholder="class name">
+            <input type="submit" name="submit">
+        </form>
+    </section>
+    {% endblock %}
+</body>
+</html>

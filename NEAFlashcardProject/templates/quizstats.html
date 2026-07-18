@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Stats</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <section class='quiz'> 
+        <h1>Highscore:  {{ highscore }}%</h1>
+        <h4>You have completed this quiz {{count}} times!</h4>
+        <img src="{{ url_for('quiz.chart') }}" alt="Chart">
+        <img src="{{ url_for('quiz.barchart') }}" alt="Barchart">
+    </section>
+    {% endblock %}
+</body>
+</html>

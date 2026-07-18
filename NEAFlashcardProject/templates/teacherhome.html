@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"> <!-- specifies the language as english and the text direction as left-to-right -->
+ <head> <!--head section contains metadata about the html document eg. title/character set/styles etc-->
+   <meta charset="utf-8">
+   <title>Flask Parent Template</title> <!--the title is displayed in the browsers title bar or tab-->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> <!--links to external css stylesheet
+   Flask's 'url_for' function generates the URL for the 'template.css' file located in the 'static/css' directory-->
+ </head>
+ <body> 
+  <header class="header">
+    <form action="{{ url_for('logout') }}" method="POST">
+      <input type="submit" name="logout" value="Logout">
+    </form>
+
+    <form action="{{ url_for('settings') }}" method="POST">
+        <input type="submit" name="settings" value="Settings">
+    </form>
+
+    <h2>Welcome back, {{name}}!</h2>
+  </header>
+    <section class="sidebar">
+        <p class="teacher_menu"><a href="{{ url_for('teacher.classes') }}">Classes</a></p>
+        <p class="teacher_menu"><a href="{{ url_for('study.manageflashcards') }}">Make Quiz</a></p>
+        <p class="teacher_menu"><a href="{{ url_for('quiz.homeworkprogress') }}">View Homework Progress</a></p>
+    </section>
+
+    {% block content %}
+    {% endblock %}
+ </body>
+</html>

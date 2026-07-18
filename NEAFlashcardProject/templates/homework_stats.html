@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework Progress</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'teacherhome.html'%}
+    {% block content %}
+    <section class='quiz'> 
+       <h1>{{ deckname }}</h1>
+       {% for student in scores %}
+       <p>{{ student[0] }} - {{ student[1] }}</p>
+       {% endfor %}
+    </section>
+    {% endblock %}
+</body>
+</html>

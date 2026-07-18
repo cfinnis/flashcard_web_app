@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <section class='quiz'> 
+        <div class="box">
+            <div class="decks">
+                <h3>Homework</h3>
+                {% for deck in decks %}
+                <ul>
+                    {{ deck[1] }}
+                </ul>
+                {% endfor %}
+            </div>
+            <h3></h3>
+            <div class="quiz_btn">
+                {% for deck in decks %}
+                <form action="{{ url_for('quiz.quiz') }}" method="POST">
+                    <button type="submit" name="deck_id" value="{{ deck[0] }}">do quiz</button> 
+                </form>
+                {% endfor %}
+            </div>
+        </div> 
+    </section>
+    {% endblock %}
+</body>
+</html>

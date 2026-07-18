@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends base_template %}
+    {% block content %}
+    <section class="study">
+        <h1>Account Settings</h1>
+        <h4>Update Profile</h4>
+        <form action='/updateprofile' method="POST">
+            <input type="text" name="name" placeholder="{{ name }}">
+            <input type="text" name="email" placeholder="{{ email }}">
+            <input type="submit" name="submit">
+        </form>
+        <p>{{ message }}</p>
+    </section>
+    {% endblock %}
+</body>
+</html>

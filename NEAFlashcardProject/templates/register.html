@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <center>
+    <p><a href="{{ url_for('login') }}">Already have an account? Login here.</a></p>
+    <h1>Register</h1>
+    <form action='/register'method="POST">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="name" name="name" placeholder="Name">
+
+        <select name="account">
+            <option value="1">Student</option>
+            <option value="0">Teacher</option>     
+        </select>
+
+        <input type="submit" name="submit">
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+
+    </center>
+</body>
+</html>

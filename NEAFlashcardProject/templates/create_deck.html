@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Deck</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <center>
+        <!-- Add items form-->
+        <h1>Add Deck</h1>
+        <form method="POST">
+            <input type="text" name="deck" placeholder="deck">
+            <input type="submit" name="submit">
+
+        </form>
+        <!-- <h3>All Decks</h3>
+
+         Remove items form-->
+        <!-- <div id = "deleteflashcards">
+            <form action="/deleteflashcards" method="POST">
+                {% for flashcard in flashcards %}
+                <input type="checkbox" name="check" id="{{flashcard[0]}}" value="{{flashcard[0]}}">
+                <label for="{{flashcard[0]}}" name="{{flashcard[0]}}">{{ flashcard[1] }} {{ flashcard[2] }}</label><br>
+                {% endfor %}
+                <input type="submit" value="delete cards">
+            </form>
+        </div> --> 
+        </center>
+    {% endblock %}
+</body>
+</html>

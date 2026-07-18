@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Do Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <div class="quiz_container">
+        <div class="question">
+            {{ current_question[0] }}
+        </div>
+        <form action="{{ url_for('quiz.answers') }}" method="POST" class="answers">
+                <button type="submit" name="answer" value="{{ answers[0][1] }}">{{ answers[0][0] }}</button>
+                <button type="submit" name="answer" value="{{ answers[1][1] }}">{{ answers[1][0] }}</button>
+                <button type="submit" name="answer" value="{{ answers[2][1] }}">{{ answers[2][0] }}</button>
+                <button type="submit" name="answer" value="{{ answers[3][1] }}">{{ answers[3][0] }}</button>
+        </form>
+
+        <form action="{{ url_for('quiz.stats_button') }}" method="POST">
+            <input type="submit" name="submit" value="quiz stats">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

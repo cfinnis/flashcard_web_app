@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Cards</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <main class="manage_cards">
+        <!-- Add deck form-->
+        <section class="element">
+            <h1 class="title">Add Deck</h1>
+            <form action="{{ url_for('study.adddeck') }}" method="POST">
+                <input type="text" name="deck" placeholder="deck">
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+        <!-- Add flashcards form-->
+        <section class="element">
+            <h1 class="title">Add Flashcard</h1>
+            <form action="{{ url_for('study.addflashcards') }}" method="POST">
+                <input type="text" name="front" placeholder="front">
+                <input type="text" name="back" placeholder="back">
+                <select name="select_deck">
+                    {% for deck in decks %}
+                    <option value="{{ deck[0] }}">{{ deck[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit">
+            </form>
+            
+            <h1 class="title">Move Flashcard</h1>
+            <form action="{{ url_for('study.moveflashcards') }}" method="POST">
+                <select name="move_card">
+                    {% for card in flashcards %}
+                        <option value="{{ card[0] }}">{{ card[1] }}</option>
+                    {% endfor %}
+                </select>
+                <select name="move_deck">
+                    {% for deck in decks %}
+                        <option value="{{ deck[0] }}">{{ deck[1] }}</option>
+                    {% endfor %}
+                </select> 
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+        <!-- Delete Deck form-->
+        <section class="element">
+            <h1 class="title">Delete Deck</h1>
+            <p>Deleting a deck also deletes all flashcards within that deck.</p>
+            <form action="{{ url_for('study.deletedeck') }}" method="POST">
+                <select name="delete_deck">
+                    {% for deck in decks %}
+                    <option value="{{ deck[0] }}">{{ deck[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit">
+            </form>
+        </section>
+
+        <!-- Delete/edit flashcard form -->
+        <section class="element">
+            <h1 class="title">Delete/Edit Flashcards</h1>
+            <div class="deck">
+                <form action="{{ url_for('study.deleteflashcards') }}" method="POST">
+                    {% for flashcard in flashcards %}
+                    <div id = "/deleteflashcards" class="flashcard">
+                        <input type="checkbox" name="check" id="{{flashcard[0]}}" value="{{flashcard[0]}}">
+                        <label for="{{flashcard[0]}}" name="{{flashcard[0]}}">{{ flashcard[1] }} {{ flashcard[2] }}&nbsp</label><br>
+                    </div>
+                    {% endfor %}
+                    <input type="submit" value="delete cards">
+                </form>
+                <div class="edit">
+                {% for flashcard in flashcards %}
+                    <form action="{{ url_for('study.editflashcards') }}" method="POST">
+                        <ul class="edit_list">
+                            <li class="edit_item"> 
+                                <input type="text" name="front" placeholder="{{flashcard[1]}}">
+                                <input type="text" name="back" placeholder="{{flashcard[2]}}">
+                                <button type="submit" name="flashcard_id" value="{{ flashcard[0] }}">edit</button> 
+                            </li>
+                        </ul>
+                    </form>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+    {% endblock %}
+</body>
+</html>

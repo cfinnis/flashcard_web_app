@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Answer Screen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <div class="quiz_container">
+        <div class="question">
+            {{ message }}
+        </div>
+        <form action="{{ url_for('quiz.nextquiz') }}" method="POST" class="answers">
+                <input type="submit" name="next" value="next">
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>
+

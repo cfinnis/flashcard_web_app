@@ -1,0 +1,335 @@
+ <!-- This was the most recent stuff on the edit button -->
+ 
+ <!-- <div class="flashcard-edit"> I've put the edit function on pause for now
+            <form action="{{ url_for('editflashcards', id=flashcard[0]) }}" method="POST">  
+                <button type="button" id="edit-btn">edit</button>
+                <script> src="script.js"</script>
+            </form>
+            </div> -->
+
+
+
+
+<!-- <div>
+                <form action="/editflashcards/{{card_to_update.id}}" method="POST">
+                    <input type="text" placeholder="front" name="front" value="{{card_to_update.front}}">
+                    <input type="submit" value="update card">
+                </form>
+            </div> -->
+
+
+<!-- <form action="{{ url_for('deleteflashcards') }}" method="POST">
+        <div class="flashcard-container"> -->
+            <!-- Loop through each flashcard -->
+            <!-- {% for flashcard in flashcards %}
+            <div id = "/deleteflashcards" class="flashcard"> -->
+                <!-- Checkbox for deletion -->
+                <!-- <input type="checkbox" name="check" id="{{flashcard[0]}}" value="{{flashcard[0]}}">
+                <label for="{{flashcard[0]}}" name="{{flashcard[0]}}">{{ flashcard[1] }} {{ flashcard[2] }}&nbsp</label><br>
+                <input type="submit" value="delete cards" id="delete_button"> -->
+                <!-- Edit button -->
+                <!-- <button type="button" onclick="submitEditForm({{flashcard[0]}})">edit</button>
+                <form id="edit-form-{{ flashcard[0] }}" action="{{ url_for('editflashcards', id=flashcard[0]) }}" method="POST" style="display:none;">  
+                </form>
+        
+            </div>
+        </div> -->
+        <!-- <input type="submit" value="delete cards" id="delete_button"> -->
+    <!-- </form> -->
+
+    <!-- Remove flashcards form-->
+<!-- <h3>All Flashcards</h3>
+<div id = "/deleteflashcards" class="flashcard">
+    <form action="/deleteflashcards" method="POST">
+        {% for flashcard in flashcards %}
+        <input type="checkbox" name="check" id="{{flashcard[0]}}" value="{{flashcard[0]}}">
+        <label for="{{flashcard[0]}}" name="{{flashcard[0]}}">{{ flashcard[1] }} {{ flashcard[2] }}&nbsp</label><br>
+        {% endfor %}
+
+        <input type="submit" value="delete cards">
+    </form>
+    <script> 
+        function callPythonFunction() { 
+            fetch('/editflashcards');
+                .then(response => response.text()) ;
+                .then(data => alert(data)); 
+            } 
+    </script>  -->
+<!-- </div> -->
+<!-- 
+<div class="next">
+    <form action="/nextcard" method="POST">
+        <input type="submit" name="next" value="next">
+    </form>
+</div>
+Ensure the list displays vertically
+.edit_list {
+    list-style: none; /* Remove bullets */
+    padding: 5px;       /* Remove default padding */
+    margin: 0;        /* Remove default margin */
+}
+
+.edit_item {
+    display: flex;        /* Align items horizontally (optional, for input/button alignment) */
+    flex-direction: column; /* Stack elements vertically */
+    margin-bottom: 15px;  /* Add spacing between flashcards */
+}
+
+/* Ensure the edit_list behaves as a vertical block within the grid */
+.edit_list {
+    display: block; /* Overrides flex behavior */
+    list-style-type: none; /* Removes bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+/* Ensure individual items stack within the list */
+.edit_item {
+    margin-bottom: 10px; /* Adds space between items */
+    display: flex; /* Optional: if you want to align inputs and button */
+    flex-direction: column; /* Stack inputs and button vertically */
+}
+
+/* Optional: Style the inputs and buttons */
+.edit_item input,
+.edit_item button {
+    margin: 5px 0; /* Adds space around inputs and button */
+}
+
+.deck {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    width: 550px;
+    padding: 50px;
+    margin: auto;
+    border: 1px solid black;
+}
+
+
+{% for flashcard in flashcards %}
+                <form action="/editflashcards" method="POST">
+                    <ul class="edit_list">
+                        <li class="edit_item"> 
+                            <input type="text" name="front" placeholder="{{flashcard[1]}}">
+                            <input type="text" name="back" placeholder="{{flashcard[2]}}">
+                            <button type="submit" name="flashcard_id" value="{{ flashcard[0] }}">edit</button> 
+                        </li>
+                    </ul>
+                </form>
+                {% endfor %}
+
+
+.quiz_qs {
+    display: flex; /* Enables horizontal alignment of children */
+    flex-direction: row; /* Ensures items are in a horizontal row */
+    gap: 20px; /* Adds spacing between the two columns */
+    align-items: flex-start; /* Aligns items at the top */
+}
+
+.quiz_qs{
+    grid-area: main;
+    align-self: center;
+
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 50px 50px;
+    grid-template-areas:
+        "card card"
+        "a1 a2"
+        "a3 a4";
+    gap: 20px;
+
+}
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+    padding: 50px;
+    border: 1px solid black;
+    margin: 50px;
+    grid-area: card;
+}
+
+button {
+    all: unset; /* Resets all inherited and browser-applied styles */
+    display: block; /* Makes the button respect block-level behaviors */
+    width: 100%; /* Ensures the button fills the grid cell */
+    height: 100%; /* Ensures it fits vertically as well */
+}
+.ans{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.ans:nth-child(1) {
+    grid-area: a1;
+}
+.ans:nth-child(2) {
+    grid-area: a2;
+}
+.ans:nth-child(3) {
+    grid-area: a3;
+}
+.ans:nth-child(4) {
+    grid-area: a4;
+}
+<form action="/answer" method="POST">
+    <div class="ans">
+        <button type="submit" name="answer" value="{{ current_question[5] }}">{{ current_question[1] }}</button>
+    </div> 
+    <div class="ans">
+        <button type="submit" name="answer" value="{{ current_question[5] }}">{{ current_question[2] }}</button>
+    </div> 
+    <div class="ans">
+        <button type="submit" name="answer" value="{{ current_question[5] }}">{{ current_question[3] }}</button>
+    </div> 
+    <div class="ans">
+        <button type="submit" name="answer" value="{{ current_question[5] }}">{{ current_question[4] }}</button>
+    </div>  
+</form>
+
+.quiz_container{
+    grid-area: main;
+    align-self: center;
+
+    display: grid;
+    max-width: 400px;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 50px 50px;
+    grid-template-areas:
+        "card card"
+        "a1 a2"
+        "a3 a4";
+    gap: 20px;
+
+}
+.question{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+    padding: 50px;
+    border: 1px solid black;
+    margin: 50px;
+    grid-area: card;
+}
+
+button {
+    all: unset; /* Resets all inherited and browser-applied styles */
+    display: block; /* Makes the button respect block-level behaviors */
+    width: 100%; /* Ensures the button fills the grid cell */
+    height: 100%; /* Ensures it fits vertically as well */
+    padding: 10px;
+}
+.ans{
+    <!-- display: flex;
+    justify-content: center;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.ans:nth-child(1) {
+    grid-area: a1;
+}
+.ans:nth-child(2) {
+    grid-area: a2;
+}
+.ans:nth-child(3) {
+    grid-area: a3;
+}
+.ans:nth-child(4) {
+    grid-area: a4;
+}
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <center>
+    <h1>Login</h1>
+    <form method="POST">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" name="submit">
+
+    </form>
+    </center>
+    {% endblock %}
+</body>
+</html> -->
+<h1>Login</h1>
+    <form action="/" method="POST">
+        <input type="submit" name="account" value="Student" class="account">
+        <input type="submit" name="account" value="Teacher" class="account">
+    </form>
+
+    <select>
+        {% for student in students %}
+        <option value="{{student[0]}}">{{student[1]}}</option>
+        {% endfor %}
+    </select> -->
+
+
+    <form action="/updateprofile" method="POST">
+        <input type="submit" name="update_profile" value="Update Profile">
+    </form>
+
+    <input type="name" name="name" placeholder="Name">
+
+        <select name="account">
+            <option value="1">Student</option>
+            <option value="0">Teacher</option>
+        </select>
+
+
+        <section class="element">
+            <h1 class="title">Delete Student</h1>
+            <form action="/class_deletestudent" method="POST">
+                <select name="class">
+                    {% for class in classes %}
+                    <option value="{{ class[0] }}">{{ class[1] }}</option>
+                    {% endfor %}
+                </select>
+                <input type="submit" name="submit">
+            </form>
+            <form action="/student_deletestudent" method="POST">
+                <select name="student">
+                    {% for student in class_members %}
+                    <option value="{{ student[0] }}">{{ student[1] }}</option>
+                    {% endfor %}
+                    <input type="submit" name="submit">
+                </select>
+            </form>
+        </section>
+
+ 
+        margin:20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 110px;
+        width: 110px;
+        border-radius: 50%;
+        border: 1px solid black;
+        gap: 40px;

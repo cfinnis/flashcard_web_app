@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <center>
+        <h3>All Flashcards</h3>
+        <table>
+            <tr>
+                <th>Number</th>
+                <th>Front</th>
+                <th>Back</th>
+            </tr>
+            {% for flashcard in flashcards %}
+<!--            <li>{{ flashcard[0]}}, {{ flashcard[1]}}, {{ flashcard[2]}}<button>delete</button></li>-->
+                <tr>
+                    <td>{{ flashcard[0] }}</td>
+                    <td>{{ flashcard[1] }}</td>
+                    <td>{{ flashcard[2] }}</td>
+                    <td><button id="remove">delete</button></td>
+                </tr>
+            {% endfor %}
+        </table>
+        <!-- <script>
+            const remove = document.getElementById("remove");
+            remove.addEventListener(("click"), function(e) {
+                const cardNum = document.getElementsByName({{ flashcard[0]}});
+                document.body.innerHTML = "<h1>Welcome, " + name + "!</h1>";
+            });
+        </script> -->
+
+<!--        <h1>Delete Flashcard</h1>-->
+<!--        <form method="POST">-->
+<!--            <input type="text" name="number" placeholder="card number">-->
+<!--            <input type="submit" name="submit">-->
+<!--        </form>-->
+    </center>
+    {% endblock %}
+</body>
+</html>
