@@ -138,10 +138,10 @@ The application will then be available at the local address displayed
 by Flask, typically `http://127.0.0.1:5000`.
 
 ## Screenshots
-<img width="626" height="756" alt="image" src="https://github.com/user-attachments/assets/93d6412e-4160-4528-a46b-a2b408b45e1d" />
 <img width="1470" height="746" alt="image" src="https://github.com/user-attachments/assets/aba70ad8-6181-4ab4-8433-217d971c0fcf" />
 <img width="786" height="602" alt="image" src="https://github.com/user-attachments/assets/6b66e2c5-bc9f-4f6b-8367-126f5680bc1a" />
 <img width="1260" height="618" alt="image" src="https://github.com/user-attachments/assets/175bfa5e-597c-4682-a47c-4e5c949bf9d6" />
+<img width="626" height="756" alt="image" src="https://github.com/user-attachments/assets/93d6412e-4160-4528-a46b-a2b408b45e1d" />
 
 
 
