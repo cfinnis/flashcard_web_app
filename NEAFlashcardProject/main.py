@@ -6,10 +6,11 @@ from teachers import teacher_bp
 from study import study_bp
 from quiz import quiz_bp
 import bcrypt
+import os
 
 
 app = Flask(__name__)
-app.secret_key = "ajhdojdsfnhsIHJIKBVDJasdbsdmas12293"
+app.secret_key = os.environ.get("SECRET_KEY")
 
 
 app.register_blueprint(teacher_bp, url_prefix='/teacher')
